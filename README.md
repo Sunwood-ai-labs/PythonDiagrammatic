@@ -88,6 +88,9 @@ PythonDiagrammaticは、Pythonを使ってシーケンス図や構成図など�
    - PlantUMLで色を指定する方法は、以下のリンクで確認できます。
    - https://plantuml.com/ja/color
 
+5. 詳しくはこちら
+   - [PlantUML Tutorial (examples/plantuml/README.md)](examples/plantuml/README.md)
+
 ## 今後の予定
 
 - 他のパッケージのサンプルコードを追加していく予定です。
