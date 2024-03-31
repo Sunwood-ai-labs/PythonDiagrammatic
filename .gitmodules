@@ -1,0 +1,3 @@
+[submodule "SourceSage"]
+	path = SourceSage
+	url = https://github.com/Sunwood-ai-labs/SourceSage.git
