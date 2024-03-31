@@ -9,11 +9,7 @@
 
 Pythonでシーケンス図や構成図を生成するためのいくつかの人気のあるパッケージ
 
-1. PlantUML:
-   - PlantUMLは、シーケンス図、クラス図、アクティビティ図、コンポーネント図などの様々なUML図を生成するためのオープンソースツールです。
-   - PythonからPlantUMLを使用するには、`plantuml`パッケージをインストールします。
-   - PlantUMLの図はテキストベースの言語で記述され、それを図に変換します。
-   - https://pypi.org/project/plantuml/
+
 
 2. Diagrams:
    - Diagramsは、Pythonコードを使用してシーケンス図、フローチャート、ネットワーク図などを作成するためのパッケージです。
@@ -38,6 +34,12 @@ Pythonでシーケンス図や構成図を生成するためのいくつかの�
 
 
 ## plantuml Tips
+
+### PlantUML:
+   - PlantUMLは、シーケンス図、クラス図、アクティビティ図、コンポーネント図などの様々なUML図を生成するためのオープンソースツールです。
+   - PythonからPlantUMLを使用するには、`plantuml`パッケージをインストールします。
+   - PlantUMLの図はテキストベースの言語で記述され、それを図に変換します。
+   - https://pypi.org/project/plantuml/
 
 ### setup
 
