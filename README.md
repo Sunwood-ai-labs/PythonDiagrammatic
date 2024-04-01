@@ -91,6 +91,26 @@ PythonDiagrammaticは、Pythonを使ってシーケンス図や構成図など�
 5. 詳しくはこちら
    - [PlantUML Tutorial (examples/plantuml/README.md)](examples/plantuml/README.md)
 
+
+
+## Diagrams
+
+### setup
+
+pip install diagrams
+
+
+#### local
+graphviz をダウンロード
+
+https://graphviz.org/download/
+
+#### docker
+
+docker-compose up
+
+
+
 ## 今後の予定
 
 - 他のパッケージのサンプルコードを追加していく予定です。

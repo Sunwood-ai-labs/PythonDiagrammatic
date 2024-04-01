@@ -1,0 +1,15 @@
+# 基本イメージとしてPython 3.8を使用
+FROM ubuntu:23.10
+
+# 作業ディレクトリを設定
+WORKDIR /app
+
+RUN apt update
+RUN apt install -y build-essential libbz2-dev libdb-dev \
+  libreadline-dev libffi-dev libgdbm-dev liblzma-dev \
+  libncursesw5-dev libsqlite3-dev libssl-dev \
+  zlib1g-dev uuid-dev tk-dev wget
+
+RUN apt install python3
+
+RUN apt install graphviz

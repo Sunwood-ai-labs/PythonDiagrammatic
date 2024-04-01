@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  app-diagrams:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.diagrams
+    tty: true
+    volumes:
+      - .:/app
