@@ -3,7 +3,7 @@ from diagrams.aws.compute import EC2
 from diagrams.aws.database import RDS
 from diagrams.aws.network import ELB
 
-with Diagram("Sample Web Service", show=False):
+with Diagram("/app/examples/diagrams/examples01", show=False):
     lb = ELB("Load Balancer")
     
     with Cluster("Web Servers"):

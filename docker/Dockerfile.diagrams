@@ -10,6 +10,5 @@ RUN apt install -y build-essential libbz2-dev libdb-dev \
   libncursesw5-dev libsqlite3-dev libssl-dev \
   zlib1g-dev uuid-dev tk-dev wget
 
-RUN apt install python3
-
-RUN apt install graphviz
+RUN apt install -y python3 graphviz python3-pip
+RUN pip3 install diagrams --break-system-packages
