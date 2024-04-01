@@ -64,51 +64,138 @@ PythonDiagrammaticは、Pythonを使ってシーケンス図や構成図など�
 各パッケージの基本的な使い方は、`examples`ディレクトリにサンプルコードがあります。
 それぞれのサンプルを参考に、自分だけのダイアグラムを作ってみましょう！
 
-## PlantUMLの使い方
+## PlantUML
 
-ここでは、PlantUMLを使ってシーケンス図を作成する方法を紹介します。
+PlantUMLは、シンプルなテキストベースの言語を使ってUML図を描くことができるオープンソースツールです。Pythonから簡単にPlantUMLを使うことができ、シーケンス図やクラス図などを手軽に作成できます。
 
 ![](examples/plantuml/sequence03.svg)
 
-1. PlantUMLをインストールします。
-   ```
-   pip install plantuml
-   ```
 
-2. サンプルコードを実行します。
-   ```
-   python examples\plantuml\example03.py
-   ```
+### インストール方法
 
-3. カラーリストを確認します。
-   - PlantUMLで使える色の一覧は、以下のリンクで確認できます。
-   - https://github.com/qywx/PlantUML-colors/blob/master/plantuml-colors-notes.puml
+PlantUMLをPythonから使うために、`plantuml`パッケージをインストールします。
 
-4. 色の指定方法を確認します。
-   - PlantUMLで色を指定する方法は、以下のリンクで確認できます。
-   - https://plantuml.com/ja/color
+```bash
+pip install plantuml
+```
 
-5. 詳しくはこちら
-   - [PlantUML Tutorial (examples/plantuml/README.md)](examples/plantuml/README.md)
+### 基本的な使い方
 
+PlantUMLでシーケンス図を描くには、`@startuml`と`@enduml`で図の範囲を指定し、その間にシーケンス図の要素を記述していきます。
+
+以下は、クライアントとサーバー間の簡単なやり取りを表したシーケンス図の例です。
+
+```python
+from plantuml import PlantUML
+
+server = PlantUML(url='http://www.plantuml.com/plantuml/svg/')
+
+source = """
+@startuml
+participant Client
+participant Server
+
+Client -> Server: Request
+activate Server
+Server --> Client: Response
+deactivate Server
+@enduml
+"""
+
+output = server.processes(source)
+
+with open('sequence.svg', 'wb') as f:
+    f.write(output)
+```
+
+出力結果は以下のようになります。
+
+![](examples/plantuml/sequence01.svg)
+
+### サンプルコード
+
+PlantUMLの使い方をもっと知りたい方は、[`examples/plantuml`](examples/plantuml)ディレクトリにあるサンプルコードを参考にしてください。より複雑な例やカスタマイズ方法などが紹介されています。
+
+### まとめ
+
+PlantUMLを使えば、シンプルなテキストベースの記法で様々なUML図を描くことができます。PythonからPlantUMLを使う方法を覚えておけば、シーケンス図やクラス図などを手軽に作成・更新できるようになります。
+
+詳しい使い方は`examples/plantuml`ディレクトリを参照してください。ぜひ一度PlantUMLを試してみてください。
 
 
 ## Diagrams
 
-### setup
+Diagramsは、Pythonのコードを使ってシーケンス図、フローチャート、ネットワーク図などを作成するパッケージです。シンプルで分かりやすいPythonコードで図を定義し、美しい画像ファイルとして出力できます。
 
+### インストール方法
+
+Diagramsを使うには、以下のコマンドでパッケージをインストールします。
+
+```bash
 pip install diagrams
+```
 
+#### ローカル環境の場合
 
-#### local
-graphviz をダウンロード
+Diagramsを使うには、Graphvizというツールが必要です。以下のリンクからGraphvizをダウンロードしてインストールしてください。
 
 https://graphviz.org/download/
 
-#### docker
+#### Dockerを使う場合
 
+Dockerを使う場合は、以下のコマンドでDockerイメージを起動します。
+
+```bash
 docker-compose up
+```
 
+### 使い方
+
+Diagramsを使ってシーケンス図を作成するには、以下のようなPythonコードを書きます。
+
+```python
+from diagrams import Cluster, Diagram
+from diagrams.aws.compute import EC2
+from diagrams.aws.database import RDS
+from diagrams.aws.network import ELB
+
+with Diagram("Web Service Diagram", show=False):
+    lb = ELB("Load Balancer")
+    
+    with Cluster("Web Servers"):
+        web_servers = [EC2("Web Server 1"),
+                       EC2("Web Server 2"),
+                       EC2("Web Server 3")]
+    
+    with Cluster("Database Cluster"):
+        db_primary = RDS("Primary")
+        db_replica = RDS("Replica")
+        
+    lb >> web_servers >> db_primary
+    db_primary - db_replica
+```
+
+このコードでは、AWSのアイコンを使って、ロードバランサー、ウェブサーバー、データベースクラスターを表現しています。`>>`演算子で要素間の関係を示し、`-`で要素間の関連を表しています。
+
+出力結果は以下のようになります。
+
+![](examples/diagrams/examples01.png)
+
+### サンプルコード
+
+Diagramsの使い方をもっと知りたい方は、[`examples/diagrams`](examples/diagrams)ディレクトリにあるサンプルコードを参考にしてください。
+
+例えば、`example05.py`では、カスタムアイコンを使ってCreative Commonsのライセンスを表現しています。
+
+```bash
+python3 examples/diagrams/example05.py 
+```
+
+![](examples/diagrams/examples05_mini.png)
+
+### まとめ
+
+Diagramsを使えば、Pythonのコードを書くだけで、簡単に美しい図を作成できます。インストールも使い方も簡単なので、初心者の方にもおすすめです。ぜひ一度試してみてください。
 
 
 ## 今後の予定
