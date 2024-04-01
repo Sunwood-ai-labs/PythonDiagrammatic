@@ -8,6 +8,11 @@
 
 ## 更新情報
 
+- 2024-04-01
+  - [PythonDiagrammatic v1.0.0 をリリースしました！詳細はリリースノート](https://github.com/Sunwood-ai-labs/PythonDiagrammatic/releases/tag/v1.0.0)を参照してください。
+  - README.mdを大幅に更新し、PlantUMLとDiagramsの概要、インストール方法、使用例などを充実させました。
+  - Diagramsのサンプルコードを追加し、AWSアイコンを使ったアーキテクチャ図やカスタムアイコンの使用例を示しました。
+
 - 2024-03-31
   - PlantUMLの説明を追加し、パッケージ情報をより明確にしました。
   - PlantUMLの使用に関する簡単なリファレンスと利用例を示しました。
